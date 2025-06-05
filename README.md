@@ -1,4 +1,4 @@
-This repo has some open-source Generative AI models that you can run in 8GB VRAM.
+This repo has some open-source Generative AI models that you can run in 8GB VRAM. </br>
 Kept this repo as simple as possible with models from HuggingFace (non-gated access).
 
 
@@ -11,31 +11,30 @@ Hardware Requirements:
 |CPU| Any modern CPU | 14700HX|
 
 Software requirements:
-```
-Python3.10
-Ollama
-```
 
-Ollama Model:
-```
-llama3.1:8b
-```
+[Python3](https://python.org) </br>
+[Ollama](https://ollama.com)
 
-If you want to get started with this, let's go through with the steps.
+
+Ollama Model: `llama3.1:8b` 
+Install using: `ollama pull llama3.1:8b`
+
+If you want to get started with this, let's go through with the steps in command prompt.
 1. Clone the repo into your machine.
     ```
-    git clone TODO:WEB_LOCATION 
+    git clone https://github.com/iamrdk/LocalGenerativeAIs.git
     cd LocalGenerativeAIs
     ```
-2. Create a new virtual env inside the repo using [uv](https://pypi.org/project/uv/). </br>
-    * Create a Python3.10 virtual environment: `uv venv .venv --python python3.10` </br>
-    * Activate using: `.venv\Scripts\activate`
-    * Install the requirements: `uv pip install -r requirements.txt --index-strategy unsafe-best-match`
+2. Create a new virtual env and install all the dependencies with a simple batch script: `setup_env_win.bat` </br>
+    The dependencies needs to be installed in a serial way to properly install the torch packages.
+
+3. You can either create your own file and use the classes inside `gen_ai` or use the `simple_pipeline.py` file to automate everything. Code samples for each generator provided below in Easy Inference.</br>
+    (UI will be there soon)
 
 #
 ### Let's talk about the HuggingFace models and why only these were selected:
 * Image Models:
-    1. SDXL is popular and is the best model so far with decent results. It's limited to a max of 1024x1024 resolution images.
+    1. SDXL is popular and is the best model so far with decent results. It's limited to a max of 1024x1024 resolution images. This generates better than Sana for some reason. </br>
     More details can be found here for [SDXL Base](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0) and [SDXL Refiner](https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0).
     2. Sana 1.5 is from NVIDIA and the only model that can go upto 4K resolution.
     More details on Sana 1.5 1.6B model can be found [here](https://huggingface.co/Efficient-Large-Model/SANA1.5_1.6B_1024px_diffusers).
@@ -47,8 +46,8 @@ If you want to get started with this, let's go through with the steps.
     1. Musicgen Small was used as it's lightweight and can create decent 30s audio from a text prompt. More details can be found [here](https://huggingface.co/facebook/musicgen-small).
 
 * Video Models:
-    1. LTX-Video is very fast and can generate a 240 frame video of 704x512 pixels in less than 200 seconds or around 3min 15secs. More details [here](https://huggingface.co/Lightricks/LTX-Video).
-    2. WAN 2.1 T2V is a good model, it runs in 8GB VRAM but it takes a long time to generate a video. Almost 30 mins for a 6s video of 832x480 pixels. More details [here](https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B).
+    1. LTX-Video is very fast and can generate a 240 frame video of 704x512 pixels in less than 200 seconds or around 3min 15secs. The quality is not so good. More details [here](https://huggingface.co/Lightricks/LTX-Video).
+    2. WAN 2.1 T2V is a good model, it runs in 8GB VRAM but it takes a long time to generate a video. Almost 30 mins for a 6s video of 832x480 pixels. The quality is good. More details [here](https://huggingface.co/Wan-AI/Wan2.1-T2V-1.3B).
 
 #
 ### Huggingface model size and download size
