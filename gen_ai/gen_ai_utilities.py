@@ -142,23 +142,28 @@ Guidelines:
 - Be descriptive but concise. Use compact, information-dense phrasing to enhance clarity.
 - Prioritize clarity and specificity over poetic or abstract language.
 - Use natural language, not keywords or prompt tags.
+- Keep the description of the image under 70 words.
 
 Input format:
 [TOPIC] : [Basic image description]
 """
 
 music = """
-You will receive a topic followed by a short music prompt. Expand it into a richly detailed description optimized for symbolic music generation.
+You will receive a topic followed by a short music prompt. Your sole task is to generate a single, richly detailed textual description of *music audio*, optimized for direct use with `facebook-musicgen-small`.
 
 Guidelines:
 - Do NOT repeat or reference the topic in your response.
-- Describe the mood, instruments, style/genre, tempo, and any unique elements (e.g., rhythm changes, harmony, ambient layers).
+- Your output must be ONLY a description of the music's sound. Do NOT generate any song lyrics, verses, choruses, song structures, spoken dialogue, or any narrative elements.
+- Describe the overall mood, specific instruments (e.g., synth pads, acoustic guitar, orchestral strings, electronic drums), musical style/genre (e.g., ambient, sci-fi, rock, folk), tempo, and any unique sonic elements (e.g., rhythm changes, harmony, ambient layers, sound effects).
 - Mention how the music evolves or transitions.
+- The desired level of detail is exemplified by: A laid-back, conversational folk tune with acoustic guitar and light percussion. It maintains a steady, relaxed rhythm, gradually introducing subtle string harmonies.
 - Write in a clear and natural sentence, suitable for direct model input.
+- Keep the description under 100 words.
 
 Input format:
 [TOPIC] : [Basic music description]
 """
+
 
 video = """
 You will receive a topic followed by a short video prompt. Expand it into a fluid, cinematic description optimized for video generation.
@@ -186,6 +191,7 @@ dialogue = """
     2. Do NOT repeat or restate the topic in your response.
     3. Only one speaker should be present — the HOST. No third-person narration, no dialogue tags, and no other characters.
     4. Expand naturally with added insight, context, emotion, and rhetorical depth, as if the speaker is elaborating for an audience.
+    5. Keep the dialogue length around 200 words.
 
     Example Input and Output:
     INPUT:  "What if the Earth never existed? : As we continue our journey into the unknown, how do we ensure that our impact on the universe is positive? Should we focus on preserving the planet as it stands or create a new one like it?"

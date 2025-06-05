@@ -8,18 +8,18 @@ from .gen_ai_utilities import file_saver, system_prompts
 class OLLAMA_SCRIPT:
     """ Utilizes Ollama to create scripts.
     """
-    def __init__(self, output_folder:str="outputs"):
+    def __init__(self, output_folder:str="outputs", model:str="llama3.1:8b", think=False):
         """ Initialize Ollama model.
             Args:
                 output_folder (str): The folder where the script will be stored.
+                model (str): The Ollama model you want to use.
+                think (bool): Indicates if it's a thinking model or non-thinking model. Both output differently.
         """
         self.output_folder = output_folder
 
-        # Tested with llama3, qwen3 and gemma3 models.
-        self.model_name = "llama3.1:8b"
-
-        ## If you choose a thinking model, make sure to change this boolean to True as they output in a different pattern.
-        self.thinking_model = False
+        # Suggested models: llama3, qwen3 and gemma3 models.
+        self.model_name = model
+        self.thinking_model = think
 
         self.idea = ""
 
@@ -56,7 +56,7 @@ class OLLAMA_SCRIPT:
         
         return prompt
     
-    def generate_script(self, prompt: str, seed=42) -> str:
+    def generate_script(self, prompt: str, seed=10) -> str:
         """ Generate a script based on the user's prompt.
             Args:
                 prompt (str): The user's input message.
@@ -117,12 +117,12 @@ class OLLAMA_SCRIPT:
         with open(image_file, 'w+', encoding="utf-8")as im, open(music_file, 'w+', encoding="utf-8")as ms, open(dialogue_file, 'w+', encoding="utf-8")as di, open(video_file, 'w+', encoding="utf-8")as vd:
             for line in self.script.split('\n'):
                 if line.startswith(img_pattern):
-                    im.write(self.detailer(line, "img")+"\n")
-                    vd.write(self.detailer(line, "vid")+"\n")
+                    im.write(self.detailer(line, "img", 44)+"\n")
+                    vd.write(self.detailer(line, "vid", 1)+"\n")
                 elif line.startswith(dia_pattern):
-                    di.write(self.detailer(line, "dia")+"\n")
+                    di.write(self.detailer(line, "dia", 86)+"\n")
                 elif line.startswith(music_pattern):
-                    ms.write(self.detailer(line, "msc")+"\n")
+                    ms.write(self.detailer(line, "msc", 96)+"\n")
         
         self.generated_files["music"] = music_file
         self.generated_files["dialogue"] = dialogue_file

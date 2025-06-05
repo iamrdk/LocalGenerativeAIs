@@ -22,7 +22,7 @@ Install using: `ollama pull llama3.1:8b`
 If you want to get started with this, let's go through with the steps in command prompt.
 1. Clone the repo into your machine.
     ```
-    git clone https://github.com/iamrdk/LocalGenerativeAIs.git
+    git clone --recurse-submodules https://github.com/iamrdk/LocalGenerativeAIs.git
     cd LocalGenerativeAIs
     ```
 2. Create a new virtual env and install all the dependencies with a simple batch script: `setup_env_win.bat` </br>

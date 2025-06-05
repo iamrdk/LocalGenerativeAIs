@@ -2,3 +2,5 @@ __pycache__/
 /XTTS-v2/
 outputs/*
 *test.py
+test*
+ideas.txt
