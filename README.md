@@ -179,7 +179,7 @@ generated_file = obj.generate_video(prompt)
 print(generated_file)
 ```
 
-#### For music generation using WAN_VIDEO-
+#### For video generation using WAN_VIDEO-
 ```
 from gen_ai import WAN_VIDEO
 
